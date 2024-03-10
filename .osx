@@ -37,7 +37,7 @@ fi
 # Enable Sudo via TouchID
 if [[ "$RUN_AS_ROOT" = true ]]; then
   sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
-  sudo  sed -i -e '/auth       sufficient     pam_tid.so/s/^#//g' /etc/pam.d/sudo_local
+  sudo sed -i -e '/auth       sufficient     pam_tid.so/s/^#//g' /etc/pam.d/sudo_local
   sudo rm -f /etc/pam.d/sudo_local-e
 fi
 
