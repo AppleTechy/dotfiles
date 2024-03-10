@@ -40,6 +40,15 @@ if [[ "$RUN_AS_ROOT" = true ]]; then
   sudo sed -i -e '/auth       sufficient     pam_tid.so/s/^#//g' /etc/pam.d/sudo_local
   sudo rm -f /etc/pam.d/sudo_local-e
 fi
+###############################################################################
+# Set File Type's Default "Open In"                                           #
+###############################################################################
+duti -s com.microsoft.VSCode .md all
+duti -s com.microsoft.VSCode .yaml all
+duti -s com.microsoft.VSCode .yml all
+duti -s com.microsoft.VSCode .json all
+duti -s com.microsoft.VSCode .py all
+
 
 ###############################################################################
 # General UI/UX                                                               #
