@@ -31,6 +31,14 @@ else
   # Update existing `sudo` timestamp until `.osx` has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 fi
+###############################################################################
+# General System Behavior                                                     #
+###############################################################################
+# Enable Sudo via TouchID
+if [[ "$RUN_AS_ROOT" = true ]]; then
+  sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
+  sudo  sed -i -e '/auth       sufficient     pam_tid.so/s/^#//g' /etc/pam.d/sudo_local
+fi
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -60,7 +68,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Set background to dark-grey color
-osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Stone.png"'
+# osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Stone.png"'
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
