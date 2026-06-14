@@ -25,8 +25,8 @@ setopt HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY INC_APPEND_HISTORY
 
 # Custom $PATH with extra locations.
 # Homebrew's /opt/homebrew/bin is added by `brew shellenv` in .zshenv / .zprofile.
-# $HOME/.cargo/bin comes first so rustup's cargo/rustc proxies win over anything else.
-export PATH=$HOME/.cargo/bin:$HOME/Library/Python/3.9/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+# $HOME/.cargo/bin is added in .zshenv (so non-interactive shells get it too).
+export PATH=$HOME/Library/Python/3.9/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
 
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
